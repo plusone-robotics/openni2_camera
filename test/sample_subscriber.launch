@@ -1,0 +1,8 @@
+<launch>
+  <!-- Start both nodelet manager and sensor driver. -->
+  <include file="$(find openni2_launch)/launch/openni2.launch" />
+
+  <node pkg="openni2_camera" type="subscribe_node" name="subscriber_node"
+        args="load openni2_camera/OpenNI2SubscriberNodelet standalone_nodelet"
+        output="screen" />
+</launch>

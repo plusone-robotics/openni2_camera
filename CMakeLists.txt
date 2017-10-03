@@ -90,5 +90,4 @@ install(FILES openni2_nodelets.xml
         DESTINATION ${CATKIN_PACKAGE_SHARE_DESTINATION}
 )
 
-
-
+add_subdirectory(test)
