@@ -47,6 +47,9 @@ target_link_libraries(openni2_wrapper ${catkin_LIBRARIES} ${PC_OPENNI2_LIBRARIES
 add_executable(test_wrapper test/test_wrapper.cpp )
 target_link_libraries(test_wrapper openni2_wrapper ${Boost_LIBRARIES})
 
+add_executable(camera_serial_faker test/camera_serial_faker.cpp)
+target_link_libraries(camera_serial_faker ${catkin_LIBRARIES} ${PC_OPENNI2_LIBRARIES})
+
 add_library(openni2_driver_lib
    src/openni2_driver.cpp
 )
@@ -75,7 +78,7 @@ if (UNIX AND NOT APPLE)
   set(ADDITIONAL_EXECUTABLES "usb_reset")
 endif()
 
-install(TARGETS openni2_wrapper openni2_camera_nodelet openni2_camera_node list_devices openni2_driver_lib ${ADDITIONAL_EXECUTABLES}
+install(TARGETS openni2_wrapper openni2_camera_nodelet openni2_camera_node list_devices openni2_driver_lib camera_serial_faker ${ADDITIONAL_EXECUTABLES}
   ARCHIVE DESTINATION ${CATKIN_PACKAGE_LIB_DESTINATION}
   LIBRARY DESTINATION ${CATKIN_PACKAGE_LIB_DESTINATION}
   RUNTIME DESTINATION ${CATKIN_PACKAGE_BIN_DESTINATION}
